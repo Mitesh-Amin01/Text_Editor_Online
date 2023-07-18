@@ -1,0 +1,34 @@
+.h1{
+    text-align: center;
+    margin-top: 30px;
+}
+.textarea{
+    position: relative;
+    margin-top: 6rem;
+    display: flex;
+    justify-content: center;
+}
+textarea{
+    padding: 20px 20px;
+    resize: none;
+}
+.button{
+    margin: 20px 368px;
+    display: flex;
+}
+.button button{
+    cursor: pointer;
+    font-size: 15px;
+    color: white;
+    background-color: rgb(78, 99, 216);
+    padding: 5px 5px;
+    border: none;
+    border-radius: 5px;
+    margin: 0px 10px;
+}
+.counts{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    left: 290px;
+}
