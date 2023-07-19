@@ -3,7 +3,6 @@ import './textform.css'
 
 export default function TextForm(props) {
     const [text, setText] = useState('')
-    con
     const uperCase = () => {
         let newText = text.toUpperCase()
         setText(newText)
@@ -19,25 +18,32 @@ export default function TextForm(props) {
         let a = document.getElementById('textarea')
         a.style.fontWeight = 'bold'
     }
-    const speak = () => {
-        let msg = new SpeechSynthesisUtterance();
-        msg.text = text;
-        window.speechSynthesis.speak(msg);
+    const removeExtraSpace=()=>{
+        let newText = text.split(/[ ]+/);
+        setText(newText.join(" "))
+    }
+    const copy = ()=>{
+        let copytext = document.getElementById("textarea");
+        copytext.select();
+        copytext.setSelectionRange(0,99999);
+        navigator.clipboard.writeText(copytext.value)
     }
     return (
         <>
-            <h1 className='h1'>{props.heading}</h1>
+               
+            <h1 className='h1' style={props.color}>{props.heading}</h1>
             <div className='textarea'>
-                <textarea onChange={headChange} id="textarea" name="" rows="20" cols="100" value={text} placeholder='Enter Text Here'></textarea>
+                <textarea onChange={headChange} style={props.textarea} id="textarea" name="" rows="20" cols="100" value={text} placeholder='Enter Text Here'></textarea>
             </div>
             <div className="counts">
                 <p className='number-count'>Charchter:- {text.length} Word:-{text.split(" ").length}</p>
             </div>
             <div className="button">
-                <button onClick={uperCase}>Convert to Uppercase</button>
-                <button onClick={lowerCase}>Convert to Lowercase</button>
-                <button onClick={bolds}>Bold</button>
-                <button onClick={speak}>Speak</button>
+                <button onClick={uperCase} style={props.btn}>Convert to Uppercase</button>
+                <button onClick={lowerCase} style={props.btn}>Convert to Lowercase</button>
+                <button onClick={bolds} style={props.btn}>Bold</button>
+                <button onClick={removeExtraSpace} style={props.btn}>Remove Extra Space</button>
+                <button onClick={copy} style={props.btn}>Copy Text</button>
             </div>
         </>
     )
