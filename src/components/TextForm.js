@@ -14,24 +14,29 @@ export default function TextForm(props) {
     const headChange = (event) => {
         setText(event.target.value)
     }
-    const bolds = () =>{
+    const bolds = () => {
         let a = document.getElementById('textarea')
         a.style.fontWeight = 'bold'
     }
-    const removeExtraSpace=()=>{
+    const removeExtraSpace = () => {
         let newText = text.split(/[ ]+/);
         setText(newText.join(" "))
     }
-    const copy = ()=>{
+    const copy = () => {
         let copytext = document.getElementById("textarea");
         copytext.select();
-        copytext.setSelectionRange(0,99999);
+        copytext.setSelectionRange(0, 99999);
         navigator.clipboard.writeText(copytext.value)
     }
     return (
         <>
-               
+
             <h1 className='h1' style={props.color}>{props.heading}</h1>
+            <div className="colorMode">
+                <button onClick={props.blue}  style={props.btn}>Blue</button>
+                <button onClick={props.Purpal} style={props.btn}>Purpal</button>
+                <button onClick={props.cyan} style={props.btn}>Cyan</button>
+            </div>
             <div className='textarea'>
                 <textarea onChange={headChange} style={props.textarea} id="textarea" name="" rows="20" cols="100" value={text} placeholder='Enter Text Here'></textarea>
             </div>

@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.al{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    background: rgb(174, 255, 174);
+    align-items: center;
+    transition: all 0.5s ease;
+}
+.al .name{
+    margin: 10px 10px;
+}
+.btn button{
+    border: none;
+    padding: 10px 10px;
+    background: rgb(174, 255, 174);
+    font-weight: bold;
+}
